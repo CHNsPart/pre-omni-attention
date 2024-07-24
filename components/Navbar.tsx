@@ -19,7 +19,7 @@ export function Navbar({ className }: { className?: string }) {
             className="object-contain mr-2"
         />
         <MenuItem setActive={setActive} active={active} item="Product">
-          <div className="flex flex-row items-center justify-center gap-2 text-sm">
+          <div className="flex flex-row items-center justify-center gap-2 text-sm overflow-auto ">
             <span className="size-4 rounded-full bg-gradient-to-t animate-spin from-[#005EEB] to-[#21AAFF]"></span>
             <HoveredLink href="#">{"Omni Dashboard (coming soon)"}</HoveredLink>
           </div>

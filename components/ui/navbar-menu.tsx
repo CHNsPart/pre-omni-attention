@@ -89,7 +89,7 @@ export const BlogItem = ({
   src: string;
 }) => {
   return (
-    <Link href={href} className="flex max-w-sm space-x-2">
+    <Link href={href} className="flex max-w-sm space-x-2 ">
       <Image
         src={src}
         width={140}
