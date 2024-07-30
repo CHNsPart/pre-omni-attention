@@ -20,7 +20,7 @@ export function Navbar({ className }: { className?: string }) {
         />
         <MenuItem setActive={setActive} active={active} item="Product">
           <div className="flex flex-row items-center justify-center gap-2 text-sm overflow-auto ">
-            <span className="size-4 rounded-full bg-gradient-to-t animate-spin from-[#005EEB] to-[#21AAFF]"></span>
+            <span className="size-4 rounded-full bg-gradient-to-t animate-spin from-[#005EEB] to-[#21AAFF]"/>
             <HoveredLink href="#">{"Omni Dashboard (coming soon)"}</HoveredLink>
           </div>
         </MenuItem>
@@ -28,13 +28,13 @@ export function Navbar({ className }: { className?: string }) {
           <div className="text-sm grid grid-cols-2 gap-10 p-4">
             <BlogItem
               title="Create DOOH Campaigns with Omni Attention"
-              href="https://algochurn.com"
+              href="#"
               src="/b1.png"
               description="Omni Attention dashboard is high-end."
             />
             <BlogItem
               title="Why Do I Need DOOH Marketing?"
-              href="https://tailwindmasterkit.com"
+              href="#"
               src="/b2.png"
               description="Digital out of Home marketing hot right now."
             />
@@ -44,49 +44,49 @@ export function Navbar({ className }: { className?: string }) {
           <div className="flex flex-row justify-start items-start gap-2 max-w-4xl max-h-xl overflow-auto">
             <ServiceItem
               title="360 DOOH Solution"
-              href="/services/ad-scheduling"
+              href="#"
               emoji="🔥"
               description="A digitized solution for managing and optimizing your DOOH campaigns."
             />
             <ServiceItem
               title="Ad Scheduling and Slot Management"
-              href="/services/ad-scheduling"
+              href="#"
               emoji="🔥"
               description="Book ad slots effortlessly with our calendar view."
             />
             <ServiceItem
               title="Real-Time Content Delivery"
-              href="/services/real-time-delivery"
+              href="#"
               emoji="🔥"
               description="Seamlessly deliver ads in real-time to thousands of screens."
             />
             <ServiceItem
               title="Broad Monitoring and Reporting"
-              href="/services/monitoring-reporting"
+              href="#"
               emoji="🔥"
               description="Monitor screen statuses and view detailed playback reports."
             />
             <ServiceItem
               title="User-Friendly Admin Dashboard"
-              href="/services/client-admin-panels"
+              href="#"
               emoji="🔥"
               description="Navigate and manage campaigns with ease through our interfaces."
             />
             <ServiceItem
               title="Flexible User Management"
-              href="/services/user-management"
+              href="#"
               emoji="🔥"
               description="Register, manage profiles, and control access efficiently."
             />
             <ServiceItem
               title="Enhanced Security"
-              href="/services/enhanced-security"
+              href="#"
               emoji="🔥"
               description="Enjoy secure data encryption, reliable authentication, and constant uptime."
             />
             <ServiceItem
               title="Seamless Integration"
-              href="/services/seamless-integration"
+              href="#"
               emoji="🔥"
               description="Integrate smoothly with Android boxes for automatic screen updates."
             />
