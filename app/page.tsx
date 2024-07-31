@@ -19,7 +19,7 @@ export default function Home() {
     // Simulate a loading delay
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 0); // Adjust the delay as needed 4500
+    }, 4500); // Adjust the delay as needed 4500
 
     return () => clearTimeout(timer);
   }, []);

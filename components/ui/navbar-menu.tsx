@@ -89,7 +89,7 @@ export const BlogItem = ({
   src: string;
 }) => {
   return (
-    <Link href={href} className="flex max-w-sm space-x-2 ">
+    <Link href={href} className="flex w-full p-2 md:p-0 md:max-w-sm space-x-2 ">
       <Image
         src={src}
         width={140}
@@ -98,7 +98,7 @@ export const BlogItem = ({
         className="flex-shrink-0 rounded-md aspect-square object-cover shadow-2xl"
       />
       <div>
-        <h4 className="text-xl font-bold text-wrap mb-4 text-black dark:text-white">
+        <h4 className="text-lg md:text-xl w-36 md:w-fit font-bold text-wrap mb-4 text-black dark:text-white">
           {title}
         </h4>
         <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">

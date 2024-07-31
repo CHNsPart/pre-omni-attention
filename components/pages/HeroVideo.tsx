@@ -11,12 +11,13 @@ const videoVariant = {
   hidden: { scale: 0.5, borderRadius: '50%', opacity: 0 },
   visible: { 
     scale: 1, 
-    borderRadius: '0%', 
-    opacity: 1, 
+    borderRadius: '0%',
+    opacity: 1,
     transition: { 
-      duration: 1, 
-      ease: 'easeOut', 
-      delay: 0.3 
+      duration: 1,
+      ease: 'easeIn',
+      delay: 0.3,
+      stiffness: 400, damping: 17,
     }
   }
 };

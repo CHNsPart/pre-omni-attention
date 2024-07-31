@@ -8,7 +8,7 @@ export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 w-fit mx-auto z-50", className)}
+      className={cn("fixed top-10 inset-x-0 w-fit mx-auto z-50 select-none", className)}
     >
       <Menu setActive={setActive}>
         <Image
@@ -19,13 +19,13 @@ export function Navbar({ className }: { className?: string }) {
             className="object-contain mr-2"
         />
         <MenuItem setActive={setActive} active={active} item="Product">
-          <div className="flex flex-row items-center justify-center gap-2 text-sm overflow-auto ">
+          <div className="flex flex-row items-center justify-center gap-2 text-sm overflow-auto">
             <span className="size-4 rounded-full bg-gradient-to-t animate-spin from-[#005EEB] to-[#21AAFF]"/>
             <HoveredLink href="#">{"Omni Dashboard (coming soon)"}</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Blogs">
-          <div className="text-sm grid grid-cols-2 gap-10 p-4">
+          <div className="text-sm relative w-screen md:w-fit grid grid-cols-1 md:grid-cols-2 gap-10 p-0 md:p-4">
             <BlogItem
               title="Create DOOH Campaigns with Omni Attention"
               href="#"
@@ -41,7 +41,7 @@ export function Navbar({ className }: { className?: string }) {
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Services">
-          <div className="flex flex-row justify-start items-start gap-2 max-w-4xl max-h-xl overflow-auto">
+          <div className="flex flex-row justify-start items-start gap-2 max-w-lg md:max-w-4xl max-h-xl overflow-auto pr-44 md:pr-0">
             <ServiceItem
               title="360 DOOH Solution"
               href="#"
