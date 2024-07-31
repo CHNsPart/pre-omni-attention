@@ -1,26 +1,54 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HoveredLink, Menu, MenuItem, BlogItem, ServiceItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { motion, useAnimation } from 'framer-motion';
 
 export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (!active) {
+        if (currentScrollY > prevScrollY) {
+          // Scrolling down
+          controls.start({ y: -20, opacity: 0 });
+        } else {
+          // Scrolling up
+          controls.start({ y: 0, opacity: 1 });
+        }
+      }
+      setPrevScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [controls, prevScrollY, active]);
+
   return (
-    <div
+    <motion.div
       className={cn("fixed top-10 inset-x-0 w-fit mx-auto z-50 select-none", className)}
+      initial={{ y: 0, opacity: 1 }}
+      animate={controls}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
     >
       <Menu setActive={setActive}>
         <Image
-            height={30} // Adjust the height as needed
-            width={30} // Adjust the width as needed
-            src="/oa_icon.svg"
-            alt="Hero"
-            className="object-contain mr-2"
+          height={30} // Adjust the height as needed
+          width={30} // Adjust the width as needed
+          src="/oa_icon.svg"
+          alt="Hero"
+          className="object-contain mr-2"
         />
         <MenuItem setActive={setActive} active={active} item="Product">
           <div className="flex flex-row items-center justify-center gap-2 text-sm overflow-auto">
-            <span className="size-4 rounded-full bg-gradient-to-t animate-spin from-[#005EEB] to-[#21AAFF]"/>
+            <span className="size-4 rounded-full bg-gradient-to-t animate-spin from-[#005EEB] to-[#21AAFF]" />
             <HoveredLink href="#">{"Omni Dashboard (coming soon)"}</HoveredLink>
           </div>
         </MenuItem>
@@ -93,6 +121,6 @@ export function Navbar({ className }: { className?: string }) {
           </div>
         </MenuItem>
       </Menu>
-    </div>
+    </motion.div>
   );
 }

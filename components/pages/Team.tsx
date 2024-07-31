@@ -16,14 +16,20 @@ type TeamMember = {
 const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position }) => {
   const controls = useAnimation();
   const squareControls = useAnimation();
+  const textControls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.1 });
 
   useEffect(() => {
     if (inView) {
       controls.start({ scale: 1, opacity: 1 });
       squareControls.start({ scale: 0.8, opacity: 1, rotate: 45 });
+      textControls.start({ y: 0, opacity: 1 });
+    } else {
+      controls.start({ scale: 1, opacity: 0 });
+      squareControls.start({ scale: 0.8, opacity: 0, rotate: 0 });
+      textControls.start({ y: 10, opacity: 0 });
     }
-  }, [controls, squareControls, inView]);
+  }, [controls, squareControls, textControls, inView]);
 
   return (
     <div className="flex flex-col items-center py-8 relative group" ref={ref}>
@@ -54,10 +60,11 @@ const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position }) => {
         className="size-28 rounded-lg bg-blue-500 absolute top-[40%] transform rotate-45 transition-transform duration-300 group-hover:rotate-180 group-hover:cursor-pointer"
       />
       <motion.div 
-        initial={{y:10, opacity:0}}
-        animate={{y:0, opacity:1}}
-        transition={{duration:0.5, delay: 0.6, staggerChildren: 0.3}}
-        className="text-center mt-16">
+        initial={{ y: 10, opacity: 0 }}
+        animate={textControls}
+        transition={{ duration: 0.5, delay: 0.6, staggerChildren: 0.3 }}
+        className="text-center mt-16"
+      >
         <p className="text-xl font-semibold">{name}</p>
         <p className="text-blue-600">{position}</p>
       </motion.div>

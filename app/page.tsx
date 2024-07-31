@@ -1,9 +1,9 @@
 "use client"
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
-import Image from "next/image";
+// import Image from "next/image";
 import NumberTicker from '@/components/magicui/NumberTicker';
-import Hero from '@/components/pages/Hero';
+// import Hero from '@/components/pages/Hero';
 import { Navbar } from '@/components/Navbar';
 import HeroVideo from '@/components/pages/HeroVideo';
 import NewsletterCTA from '@/components/pages/NewsletterCTA';

@@ -43,7 +43,7 @@ const buttonVariant = {
 
 export default function HeroSection() {
   return (
-    <section className="w-full h-full flex flex-col items-center justify-center bg-white px-4 mt-44 md:mt-56 mb-36 md:mb:48">
+    <section className="relative w-full h-full flex flex-col items-center justify-center bg-white px-4 mt-44 md:mt-56 mb-36 md:mb:48">
       <motion.h1 
         className="text-4xl md:text-5xl font-medium mb-8 text-center z-40"
         initial="hidden"
