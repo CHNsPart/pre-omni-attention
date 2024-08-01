@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 // import Image from "next/image";
 import NumberTicker from '@/components/magicui/NumberTicker';
 // import Hero from '@/components/pages/Hero';
+import SmoothScrolling from '@/components/SmoothScrolling';
 import { Navbar } from '@/components/Navbar';
 import HeroVideo from '@/components/pages/HeroVideo';
 import NewsletterCTA from '@/components/pages/NewsletterCTA';
@@ -37,15 +38,17 @@ export default function Home() {
 
   return (
     <main className="flex h-screen flex-col items-center justify-between">
-      <div className="relative w-full flex items-center justify-center">
-        <Navbar className="top-10" />
-      </div>
-      {/* <Hero/> */}
-      <HeroVideo/>
-      <NewsletterCTA/>
-      <Team/>
-      <Contact/>
-      <Footer/>
+      <SmoothScrolling>
+        <div className="relative w-full flex items-center justify-center">
+          <Navbar className="top-10" />
+        </div>
+        {/* <Hero/> */}
+        <HeroVideo/>
+        <NewsletterCTA/>
+        <Team/>
+        <Contact/>
+        <Footer/>
+      </SmoothScrolling>
     </main>
   );
 }
