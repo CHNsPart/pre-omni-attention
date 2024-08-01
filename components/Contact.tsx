@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { ToastProvider, Toast, ToastTitle, ToastDescription, ToastViewport } from '@radix-ui/react-toast';
 
 const ContactLottie = dynamic(() => import('../components/ContactLottie'), { ssr: false });
 
@@ -30,6 +31,8 @@ export default function Contact() {
   
   const { ref: spanRef, inView: spanInView } = useInView({ triggerOnce: false, threshold: 0.1 });
   const spanControls = useAnimation();
+  
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (titleInView) {
@@ -47,8 +50,24 @@ export default function Contact() {
     }
   }, [spanInView, spanControls]);
 
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("info@omniattention.com").then(() => {
+      setOpen(true);
+    }).catch(err => {
+      console.error("Failed to copy email address.", err);
+    });
+  };
+
   return (
     <section className='relative w-full h-fit flex flex-col md:flex-row items-center justify-center bg-white px-4 md:px-8 gap-10 py-24 lg:py-48'>
+      <ToastProvider swipeDirection="right">
+        <Toast className='rounded-lg px-3 py-2 bg-blue-500 text-white z-[9999]' open={open} onOpenChange={setOpen}>
+          <ToastTitle>📌</ToastTitle>
+          <ToastDescription>Email address copied to clipboard!</ToastDescription>
+        </Toast>
+        <ToastViewport className="fixed bottom-0 right-0 p-4 w-96" />
+      </ToastProvider>
+
       <div className='flex flex-col gap-5 justify-start items-start'>
         <motion.h2
           ref={titleRef}
@@ -84,10 +103,11 @@ export default function Contact() {
           animate={spanControls}
           variants={spanVariants}
           custom={4}
+          onClick={handleCopyEmail}
           className='flex gap-2 px-4 py-2 items-center justify-center w-full md:w-fit bg-black text-white rounded-lg cursor-pointer hover:bg-blue-950 transition-all'
         >
           <Image src={"/gmail.svg"} height={20} width={20} alt='gmail' />
-          info@omniattention.com
+          <span>info@omniattention.com</span>
         </motion.span>
       </div>
       <div><ContactLottie /></div>
