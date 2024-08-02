@@ -1,9 +1,7 @@
 "use client"
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
-// import Image from "next/image";
 import NumberTicker from '@/components/magicui/NumberTicker';
-// import Hero from '@/components/pages/Hero';
 import SmoothScrolling from '@/components/SmoothScrolling';
 import { Navbar } from '@/components/Navbar';
 import HeroVideo from '@/components/pages/HeroVideo';
@@ -42,7 +40,6 @@ export default function Home() {
         <div className="relative w-full flex items-center justify-center">
           <Navbar className="top-10" />
         </div>
-        {/* <Hero/> */}
         <HeroVideo/>
         <NewsletterCTA/>
         <Team/>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BackgroundBeams } from '../ui/background-beams';
 
 const textVariant = {
   hidden: { opacity: 0, y: -50 },
@@ -58,15 +57,16 @@ export default function HeroSection() {
         animate="visible"
         variants={videoVariant}
       >
-        <motion.video 
+        <video 
           src="/oa_hero.mp4" 
           autoPlay 
           loop 
           muted 
-          playsInline 
+          playsInline
+          preload="auto"
           className="w-full"
         >
-        </motion.video>
+        </video>
 
         <motion.div 
           className='flex flex-col items-center md:flex-row justify-center md:justify-between gap-10 z-40'
@@ -90,7 +90,6 @@ export default function HeroSection() {
           </motion.button>
         </motion.div>
       </motion.div>
-      <BackgroundBeams />
     </section>
   );
 }
