@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ToastProvider, Toast, ToastTitle, ToastDescription, ToastViewport } from '@radix-ui/react-toast';
-
-const ContactLottie = dynamic(() => import('../components/ContactLottie'), { ssr: false });
+import LottieViewer from '../LottieViewer';
 
 const titleVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -110,7 +108,15 @@ export default function Contact() {
           <span>info@omniattention.com</span>
         </motion.span>
       </div>
-      <div><ContactLottie /></div>
+      <div>
+        <LottieViewer
+          src="/contact.json"
+          autoplay={true}
+          loop={true}
+          width={300}
+          height={300}
+        />
+      </div>
     </section>
   );
 }

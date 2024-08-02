@@ -7,8 +7,9 @@ import { Navbar } from '@/components/Navbar';
 import HeroVideo from '@/components/pages/HeroVideo';
 import NewsletterCTA from '@/components/pages/NewsletterCTA';
 import Team from '@/components/pages/Team';
-import Contact from '@/components/Contact';
+import Contact from '@/components/pages/Contact';
 import Footer from '@/components/Footer';
+import { BentoGrid } from '@/components/pages/BentoGrid';
 
 export default function Home() {
   const Loader = dynamic(() => import('../components/Loader'), { ssr: false });
@@ -41,9 +42,10 @@ export default function Home() {
           <Navbar className="top-10" />
         </div>
         <HeroVideo/>
-        <NewsletterCTA/>
+        <BentoGrid/>
         <Team/>
         <Contact/>
+        <NewsletterCTA/>
         <Footer/>
       </SmoothScrolling>
     </main>

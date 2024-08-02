@@ -4,8 +4,8 @@ import Image from 'next/image';
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { RiMailFill, RiLinkedinBoxFill } from "react-icons/ri";
 
-// Define the type for team member data
 type TeamMember = {
   image: string;
   name: string;
@@ -57,7 +57,7 @@ const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position }) => {
         transition={{ type: "tween", stiffness: 400, damping: 17 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 1.1 }}
-        className="size-28 rounded-lg bg-blue-500 absolute top-[40%] transform rotate-45 transition-transform duration-300 group-hover:rotate-180 group-hover:cursor-pointer"
+        className="size-28 rounded-lg bg-blue-500 absolute top-[37%] transform rotate-45 transition-transform duration-300 group-hover:rotate-180 group-hover:cursor-pointer"
       />
       <motion.div 
         initial={{ y: 10, opacity: 0 }}
@@ -67,6 +67,15 @@ const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position }) => {
       >
         <p className="text-xl font-semibold">{name}</p>
         <p className="text-blue-600">{position}</p>
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={textControls}
+          transition={{ duration: 0.5, delay: 0.6, staggerChildren: 0.3 }}
+          className='flex items-center justify-center pt-2'
+        >
+          <RiMailFill className='size-6 text-black cursor-pointer'/>
+          <RiLinkedinBoxFill className='size-6 text-black cursor-pointer'/>
+        </motion.div>
       </motion.div>
     </div>
   );
@@ -78,7 +87,6 @@ const Team: React.FC = () => {
     { image: "/ts.png", name: "Tyler Steeves", position: "Chief Executive Officer" },
     { image: "/chn.png", name: "Touhidul Islam Chayan", position: "Chief Technology Officer" },
     { image: "/si.png", name: "Shamir Imtiaz", position: "Technical Lead" },
-    // Add more team members here
   ];
 
   return (

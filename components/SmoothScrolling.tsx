@@ -8,7 +8,7 @@ const SmoothScrolling = ({ children }: Readonly<{
       <ReactLenis
         root // Apply smooth scrolling to the entire page
         options={{
-          lerp: 0.1, // Adjust for desired smoothness (lower = smoother)
+          lerp: 0.2, // Adjust for desired smoothness (lower = smoother)
           duration: 1.5, // Adjust for preferred scroll duration (seconds)
         }}
       >

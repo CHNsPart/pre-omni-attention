@@ -121,8 +121,8 @@ export const ServiceItem = ({
   emoji: string;
 }) => {
   return (
-    <Link href={href} className="flex justify-center items-start p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white dark:bg-gray-800">
-      <div className="flex flex-col justify-center items-start w-56 h-40">
+    <Link href={href} className="flex justify-between items-start p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white dark:bg-gray-800">
+      <div className="flex flex-col justify-evenly items-baseline w-56 h-40">
         <span className="text-lg max-w-md mb-4">{emoji}</span>
         <div>
           <h4 className="text-lg text-wrap font-bold max-w-[15rem] mb-1 text-black dark:text-white">

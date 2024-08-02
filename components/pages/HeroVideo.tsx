@@ -49,7 +49,7 @@ export default function HeroSection() {
         animate="visible"
         variants={textVariant}
       >
-        <span className='bg-gradient-to-b from-orange-700 to-slate-950 text-transparent bg-clip-text'>Attention</span> is <span className="text-blue-600">Currency</span>!
+        <span className='bg-gradient-to-b from-orange-700 to-black text-transparent bg-clip-text'>Attention</span> is <span className='bg-gradient-to-b from-blue-700 to-black text-transparent bg-clip-text'>Currency</span>
       </motion.h1>
       <motion.div 
         className="relative w-full max-w-4xl xl:max-w-6xl overflow-hidden z-40"
@@ -75,13 +75,13 @@ export default function HeroSection() {
           variants={contentVariant}
         >
           <motion.p 
-            className="text-gray-600 text-center md:text-left max-w-2xl mt-8"
+            className="text-gray-600 text-2xl text-center md:text-left max-w-2xl mt-8"
             variants={contentVariant}
           >
-            Omni Attention gets the attention of the important people and communicates community information to help make connections possible.
+            <span className='text-blue-700 font-medium'>Omni attention</span> captures the interest of important people and engages community in powering human connection.
           </motion.p>
           <motion.button 
-            className="mt-8 bg-blue-600 text-white p-4 flex justify-center items-center rounded-lg shadow-lg"
+            className="mt-8 bg-blue-600 text-white p-4 flex justify-center items-center rounded-lg"
             variants={buttonVariant}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -69,57 +69,40 @@ export function Navbar({ className }: { className?: string }) {
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Services">
-          <div className="flex flex-row justify-start items-start gap-2 max-w-lg md:max-w-4xl max-h-xl overflow-auto pr-44 md:pr-0">
+          <div className="flex flex-row justify-start items-start gap-2 max-w-lg md:max-w-4xl max-h-xl overflow-auto pr-44 lg:pr-0">
             <ServiceItem
-              title="360 DOOH Solution"
+              title="Unmatched Strategic Ad Flexibility"
               href="#"
-              emoji="🔥"
-              description="A digitized solution for managing and optimizing your DOOH campaigns."
-            />
-            <ServiceItem
-              title="Ad Scheduling and Slot Management"
-              href="#"
-              emoji="🔥"
-              description="Book ad slots effortlessly with our calendar view."
+              emoji="📢"
+              description="Target specific locations and peak times with our extensive screen network."
             />
             <ServiceItem
               title="Real-Time Content Delivery"
               href="#"
               emoji="🔥"
-              description="Seamlessly deliver ads in real-time to thousands of screens."
+              description="Instantly update ads across numerous screens for optimal engagement."
             />
             <ServiceItem
-              title="Broad Monitoring and Reporting"
+              title="Advanced AI-Driven Insights"
               href="#"
-              emoji="🔥"
-              description="Monitor screen statuses and view detailed playback reports."
+              emoji="🔮"
+              description="Gain deep insights and optimize ads with our transparent AI technology."
             />
             <ServiceItem
-              title="User-Friendly Admin Dashboard"
+              title="Comprehensive Monitoring & Reporting"
               href="#"
-              emoji="🔥"
-              description="Navigate and manage campaigns with ease through our interfaces."
+              emoji="🗂️"
+              description="Track ad performance and screen status with real-time reports."
             />
             <ServiceItem
-              title="Flexible User Management"
+              title="Seamless Integration & Scalability"
               href="#"
-              emoji="🔥"
-              description="Register, manage profiles, and control access efficiently."
-            />
-            <ServiceItem
-              title="Enhanced Security"
-              href="#"
-              emoji="🔥"
-              description="Enjoy secure data encryption, reliable authentication, and constant uptime."
-            />
-            <ServiceItem
-              title="Seamless Integration"
-              href="#"
-              emoji="🔥"
-              description="Integrate smoothly with Android boxes for automatic screen updates."
+              emoji="✨"
+              description="Easily integrate and scale to manage both small and large screen networks."
             />
           </div>
         </MenuItem>
+
       </Menu>
     </motion.div>
   );
