@@ -5,15 +5,18 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { RiMailFill, RiLinkedinBoxFill } from "react-icons/ri";
+import Link from 'next/link';
 
 type TeamMember = {
   image: string;
   name: string;
   position: string;
+  linkedin: string,
+  gmail: string
 };
 
 // Card component
-const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position }) => {
+const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position, linkedin, gmail }) => {
   const controls = useAnimation();
   const squareControls = useAnimation();
   const textControls = useAnimation();
@@ -73,8 +76,12 @@ const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position }) => {
           transition={{ duration: 0.5, delay: 0.6, staggerChildren: 0.3 }}
           className='flex items-center justify-center pt-2'
         >
-          <RiMailFill className='size-6 text-black cursor-pointer'/>
-          <RiLinkedinBoxFill className='size-6 text-black cursor-pointer'/>
+          <Link target='_blank' href={gmail}>
+            <RiMailFill className='size-6 text-black cursor-pointer'/>
+          </Link>
+          <Link target='_blank' href={linkedin}>
+            <RiLinkedinBoxFill className='size-6 text-black cursor-pointer'/>
+          </Link>
         </motion.div>
       </motion.div>
     </div>
@@ -84,9 +91,9 @@ const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position }) => {
 // Main Team component
 const Team: React.FC = () => {
   const teamMembers: TeamMember[] = [
-    { image: "/ts.png", name: "Tyler Steeves", position: "Chief Executive Officer" },
-    { image: "/chn.png", name: "Touhidul Islam Chayan", position: "Chief Technology Officer" },
-    { image: "/si.png", name: "Shamir Imtiaz", position: "Technical Lead" },
+    { image: "/ts.png", name: "Tyler Steeves", position: "Chief Executive Officer", linkedin: "https://www.linkedin.com/in/tyler-steeves-26384129", gmail: "mailto:ts@omniattention.com" },
+    { image: "/chn.png", name: "Touhidul Islam Chayan", position: "Chief Technology Officer", linkedin: "https://www.linkedin.com/in/chnspart", gmail: "mailto:chayan@omniattention.com" },
+    { image: "/si.png", name: "Shamir Imtiaz", position: "Technical Lead", linkedin: "https://www.linkedin.com/in/shamir-imtiaz", gmail: "mailto:shamir@omniattention.com" },
   ];
 
   return (
