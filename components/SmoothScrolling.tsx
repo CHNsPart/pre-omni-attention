@@ -10,6 +10,8 @@ const SmoothScrolling = ({ children }: Readonly<{
         options={{
           lerp: 0.2, // Adjust for desired smoothness (lower = smoother)
           duration: 1.5, // Adjust for preferred scroll duration (seconds)
+          smoothWheel: true,
+          syncTouch: true,
         }}
       >
         {children}
