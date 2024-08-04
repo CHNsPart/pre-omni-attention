@@ -59,6 +59,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Scrollbar styles for webkit browsers (Chrome, Safari, etc.) */
 ::-webkit-scrollbar {
   width: 12px; /* Width of the entire scrollbar */

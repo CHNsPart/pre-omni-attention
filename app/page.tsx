@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <main className="flex h-screen flex-col items-center justify-between">
-      <SmoothScrolling>
+      {/* <SmoothScrolling> */}
         <div className="relative w-full flex items-center justify-center">
           <Navbar className="top-10" />
         </div>
@@ -47,7 +47,7 @@ export default function Home() {
         <Contact/>
         <NewsletterCTA/>
         <Footer/>
-      </SmoothScrolling>
+      {/* </SmoothScrolling> */}
     </main>
   );
 }
