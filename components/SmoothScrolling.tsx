@@ -12,6 +12,7 @@ const SmoothScrolling = ({ children }: Readonly<{
           duration: 1.5, // Adjust for preferred scroll duration (seconds)
           smoothWheel: true,
           syncTouch: true,
+          gestureOrientation: 'both'
         }}
       >
         {children}

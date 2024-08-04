@@ -91,9 +91,9 @@ const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position, linkedin,
 // Main Team component
 const Team: React.FC = () => {
   const teamMembers: TeamMember[] = [
-    { image: "/ts.png", name: "Tyler Steeves", position: "Chief Executive Officer", linkedin: "https://www.linkedin.com/in/tyler-steeves-26384129", gmail: "mailto:ts@omniattention.com" },
-    { image: "/chn.png", name: "Touhidul Islam Chayan", position: "Chief Technology Officer", linkedin: "https://www.linkedin.com/in/chnspart", gmail: "mailto:chayan@omniattention.com" },
-    { image: "/si.png", name: "Shamir Imtiaz", position: "Technical Lead", linkedin: "https://www.linkedin.com/in/shamir-imtiaz", gmail: "mailto:shamir@omniattention.com" },
+    { image: "https://tylersteeves.netfirms.com/ts.png", name: "Tyler Steeves", position: "Chief Executive Officer", linkedin: "https://www.linkedin.com/in/tyler-steeves-26384129", gmail: "mailto:ts@omniattention.com" },
+    { image: "https://tylersteeves.netfirms.com/chn.png", name: "Touhidul Islam Chayan", position: "Chief Technology Officer", linkedin: "https://www.linkedin.com/in/chnspart", gmail: "mailto:chayan@omniattention.com" },
+    { image: "https://tylersteeves.netfirms.com/si.png", name: "Shamir Imtiaz", position: "Technical Lead", linkedin: "https://www.linkedin.com/in/shamir-imtiaz", gmail: "mailto:shamir@omniattention.com" },
   ];
 
   return (

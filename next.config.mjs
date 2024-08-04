@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ['tylersteeves.netfirms.com'],
+  },
   async rewrites() {
     return [
       {
