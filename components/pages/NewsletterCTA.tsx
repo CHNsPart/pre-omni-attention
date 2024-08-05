@@ -15,7 +15,7 @@ const buttonVariants = {
 };
 
 export default function NewsletterCTA() {
-  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.1 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const controls = useAnimation();
 
   useEffect(() => {

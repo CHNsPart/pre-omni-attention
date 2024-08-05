@@ -20,7 +20,7 @@ const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position, linkedin,
   const controls = useAnimation();
   const squareControls = useAnimation();
   const textControls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.1 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   useEffect(() => {
     if (inView) {

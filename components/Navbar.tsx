@@ -8,15 +8,20 @@ import { motion, useAnimation } from 'framer-motion';
 export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const [prevScrollY, setPrevScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const controls = useAnimation();
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (!active) {
         if (currentScrollY > prevScrollY) {
           // Scrolling down
-          controls.start({ y: -20, opacity: 0 });
+          controls.start({ y: isMobile ? 0 : -20, opacity: 0 });
         } else {
           // Scrolling up
           controls.start({ y: 0, opacity: 1 });
@@ -25,11 +30,15 @@ export function Navbar({ className }: { className?: string }) {
       setPrevScrollY(currentScrollY);
     };
 
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
     window.addEventListener('scroll', handleScroll);
+
     return () => {
+      window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [controls, prevScrollY, active]);
+  }, [controls, prevScrollY, active, isMobile]);
 
   return (
     <motion.div
@@ -57,13 +66,13 @@ export function Navbar({ className }: { className?: string }) {
             <BlogItem
               title="Create DOOH Campaigns with Omni Attention"
               href="#"
-              src="https://www.tylersteeves.netfirms.com/b1.png"
+              src="https://tylersteeves.netfirms.com/b1.png"
               description="Omni Attention dashboard is high-end."
             />
             <BlogItem
               title="Why Do I Need DOOH Marketing?"
               href="#"
-              src="https://www.tylersteeves.netfirms.com/b2.png"
+              src="https://tylersteeves.netfirms.com/b1.png"
               description="Digital out of Home marketing hot right now."
             />
           </div>

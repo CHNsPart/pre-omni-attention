@@ -24,10 +24,10 @@ const spanVariants = {
 };
 
 export default function Contact() {
-  const { ref: titleRef, inView: titleInView } = useInView({ triggerOnce: false, threshold: 0.1 });
+  const { ref: titleRef, inView: titleInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const titleControls = useAnimation();
   
-  const { ref: spanRef, inView: spanInView } = useInView({ triggerOnce: false, threshold: 0.1 });
+  const { ref: spanRef, inView: spanInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const spanControls = useAnimation();
   
   const [open, setOpen] = useState(false);
@@ -108,7 +108,7 @@ export default function Contact() {
           <span>info@omniattention.com</span>
         </motion.span>
       </div>
-      <div>
+      <div className='hidden md:block'>
         <LottieViewer
           src="/contact.json"
           autoplay={true}
