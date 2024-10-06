@@ -7,6 +7,11 @@ import * as THREE from 'three';
 import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader';
 import MultiStepModal from '../ui/MultiStepModal';
 
+// Define a type for the expected structure of the SVG data
+type SVGData = {
+  paths: THREE.ShapePath[];
+};
+
 const Screen = ({ position, rotation }: { position: [number, number, number]; rotation: [number, number, number] }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const texture = useTexture('/oa_og.png');
@@ -37,7 +42,7 @@ const AIParticles = () => {
     return geometry;
   }, []);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (particlesRef.current) {
       particlesRef.current.rotation.y += 0.001;
     }
@@ -54,17 +59,17 @@ const AIParticles = () => {
 const Logo = () => {
   const svgRef = useRef<THREE.Group>(null);
 
-  const svgData = useLoader(SVGLoader, '/oa_icon.svg');
+  // Cast the returned value from useLoader to SVGData type
+  const svgData = useLoader(SVGLoader, '/oa_icon.svg') as SVGData;
 
   const shapes = useMemo(() => {
     // Flattening the paths into shapes
     return svgData.paths.flatMap((path) => path.toShapes(true));
   }, [svgData]);
 
-  // Apply materials and meshes for SVG shapes
   return (
     <group ref={svgRef} scale={[0.01, -0.01, 0.01]} position={[0, 3, 0]}>
-      {shapes.map((shape, index) => (
+      {shapes.map((shape: THREE.Shape, index: number) => (
         <mesh key={index}>
           <shapeGeometry args={[shape]} />
           <meshPhongMaterial color="#2563eb" side={THREE.DoubleSide} />
@@ -121,15 +126,3 @@ const SalesFunnel: React.FC = () => {
 };
 
 export default SalesFunnel;
-
-
-
-
-
-
-
-
-
-
-
-
