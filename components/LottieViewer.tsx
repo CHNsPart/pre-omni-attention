@@ -1,11 +1,12 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import { DotLottie } from '@lottiefiles/dotlottie-web';
 
-// Define the options type manually
 interface DotLottieOptions {
   autoplay?: boolean;
   loop?: boolean;
-  [key: string]: any; // Add other properties as needed
+  [key: string]: any;
 }
 
 interface LottieViewerProps extends Omit<DotLottieOptions, 'canvas' | 'src'> {

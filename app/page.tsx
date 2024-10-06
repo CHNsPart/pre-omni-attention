@@ -1,53 +1,54 @@
 "use client"
+// File: app/page.tsx
+
 import dynamic from 'next/dynamic';
-import { useState, useEffect } from 'react';
-import NumberTicker from '@/components/magicui/NumberTicker';
-import SmoothScrolling from '@/components/SmoothScrolling';
+import { Suspense } from 'react';
 import { Navbar } from '@/components/Navbar';
 import HeroVideo from '@/components/pages/HeroVideo';
 import NewsletterCTA from '@/components/pages/NewsletterCTA';
-import Team from '@/components/pages/Team';
-import Contact from '@/components/pages/Contact';
 import Footer from '@/components/Footer';
-import { BentoGrid } from '@/components/pages/BentoGrid';
+
+// Dynamic imports with correct typing
+const DynamicBentoGrid = dynamic(() => import('@/components/pages/BentoGrid').then(mod => mod.BentoGrid), {
+  loading: () => <p>Loading BentoGrid...</p>,
+});
+
+const DynamicTeam = dynamic(() => import('@/components/pages/Team').then(mod => mod.default), {
+  loading: () => <p>Loading Team...</p>,
+});
+
+const DynamicContact = dynamic(() => import('@/components/pages/Contact').then(mod => mod.default), {
+  loading: () => <p>Loading Contact...</p>,
+});
+
+const DynamicSalesFunnel = dynamic(() => import('@/components/pages/SalesFunnel').then(mod => mod.default), {
+  loading: () => <p>Loading Sales Funnel...</p>,
+  ssr: false, // Disable server-side rendering for this component
+});
 
 export default function Home() {
-  const Loader = dynamic(() => import('../components/Loader'), { ssr: false });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate a loading delay
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 4500); // Adjust the delay as needed 4500
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return (
-    <div className='min-h-screen w-full flex flex-col justify-center items-center'>
-      <Loader />
-      <div className='absolute bottom-5'>
-        <NumberTicker value={100} />  <span>%</span>
-      </div>
-    </div>
-    )
-  }
-
   return (
-    <main className="flex h-screen flex-col items-center justify-between">
-      {/* <SmoothScrolling> */}
-        <div className="relative w-full flex items-center justify-center">
-          <Navbar className="top-10" />
-        </div>
-        <HeroVideo/>
-        <BentoGrid/>
-        <Team/>
-        <Contact/>
-        <NewsletterCTA/>
-        <Footer/>
-      {/* </SmoothScrolling> */}
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <div className="relative w-full flex items-center justify-center">
+        <Navbar className="top-10" />
+      </div>
+      <HeroVideo/>
+      <Suspense fallback={<p>Loading BentoGrid...</p>}>
+        <DynamicBentoGrid/>
+      </Suspense>
+
+      <Suspense fallback={<p>Loading Sales Funnel...</p>}>
+        <DynamicSalesFunnel/>
+      </Suspense>
+
+      <Suspense fallback={<p>Loading Team...</p>}>
+        <DynamicTeam/>
+      </Suspense>
+      <Suspense fallback={<p>Loading Contact...</p>}>
+        <DynamicContact/>
+      </Suspense>
+      <NewsletterCTA/>
+      <Footer/>
     </main>
   );
 }

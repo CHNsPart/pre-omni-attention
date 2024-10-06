@@ -3,7 +3,12 @@ import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ToastProvider, Toast, ToastTitle, ToastDescription, ToastViewport } from '@radix-ui/react-toast';
-import LottieViewer from '../LottieViewer';
+import dynamic from 'next/dynamic';
+
+const LottieViewer = dynamic(() => import('../LottieViewer'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>
+});
 
 const titleVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -75,25 +80,15 @@ export default function Contact() {
           custom={1}
           className="z-10 text-center md:text-left text-4xl md:text-5xl max-w-md font-medium tracking-tighter text-black dark:text-white"
         >
-          {"Let's"} talk to see if you wanna help us{' '}
-          <motion.span
-            ref={spanRef}
-            variants={spanVariants}
-            custom={2}
-            className='bg-gradient-to-b from-blue-700 to-slate-950 text-transparent bg-clip-text'
-          >
-            build
-          </motion.span>{' '}
-          or{' '}
+          Follow{' '}Our
           <motion.span
             ref={spanRef}
             variants={spanVariants}
             custom={3}
             className='bg-gradient-to-b from-orange-700 to-slate-950 text-transparent bg-clip-text'
           >
-            invest
+            Journey
           </motion.span>{' '}
-          in it.
         </motion.h2>
         <motion.span
           ref={spanRef}

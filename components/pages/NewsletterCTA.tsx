@@ -33,7 +33,7 @@ export default function NewsletterCTA() {
         initial="hidden"
         animate={controls}
         variants={textVariants}
-        className="relative flex h-fit w-full md:w-1/2 items-center justify-center overflow-hidden rounded-lg bg-background p-20"
+        className="relative flex flex-col h-fit w-full md:w-1/2 items-center justify-center overflow-hidden rounded-lg bg-background p-20"
       >
         <motion.p 
         initial="hidden"
@@ -42,8 +42,18 @@ export default function NewsletterCTA() {
           transition={{ type: "spring", stiffness: 400, damping: 17, delay:0.9 }}
           className="z-10 whitespace-pre-wrap text-center md:text-left text-4xl md:text-5xl font-medium tracking-tighter text-black dark:text-white"
         >
-          Find out {"what's"} <span className='bg-gradient-to-b from-orange-700 to-slate-950 text-transparent bg-clip-text'>going</span> on near you soon!
+          Find out how {""}
+          <span
+            className='bg-gradient-to-b from-blue-700 to-slate-950 text-transparent bg-clip-text'
+          >
+            AI
+          </span>
+          {" "}
+          is dramatically changing the marketing landscape.
+          <br /><br />
+          <span className='bg-gradient-to-b from-orange-700 to-slate-950 text-transparent bg-clip-text'>{"Dont get left behind."}</span>
         </motion.p>
+
         <GridPattern
           width={30}
           height={30}

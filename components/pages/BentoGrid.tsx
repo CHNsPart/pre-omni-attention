@@ -2,7 +2,12 @@ import React from 'react';
 import { BentoCard, BentoGrid as BentoGridComponent } from '@/components/magicui/BentoCard';
 import { TbDeviceHeartMonitor } from "react-icons/tb";
 import { GiBrainFreeze, GiSmallFire, GiFloorHatch } from "react-icons/gi";
-import LottieViewer from '../LottieViewer';
+import dynamic from 'next/dynamic';
+
+const LottieViewer = dynamic(() => import('../LottieViewer'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>
+});
 
 const features = [
   {

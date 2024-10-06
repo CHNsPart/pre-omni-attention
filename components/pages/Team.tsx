@@ -6,6 +6,11 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { RiMailFill, RiLinkedinBoxFill } from "react-icons/ri";
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const OptimizedImage = dynamic(() => import('../OptimizedImage'), {
+  loading: () => <p>Loading...</p>,
+});
 
 type TeamMember = {
   image: string;
@@ -44,14 +49,13 @@ const TeamMemberCard: React.FC<TeamMember> = ({ image, name, position, linkedin,
         whileTap={{ scale: 1.1 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
-        <Image 
+        <OptimizedImage 
           src={image} 
-          quality={100} 
-          priority 
-          height={200} 
-          width={200} 
           alt={name} 
+          width={200}
+          height={200}
           className="rounded-full"
+          sizes="(max-width: 768px) 100vw, 200px"
         />
       </motion.div>
       <motion.div
@@ -99,7 +103,7 @@ const Team: React.FC = () => {
   return (
     <section className='relative w-full h-fit flex flex-col items-center justify-center bg-white px-4 gap-10 py-24 lg:py-48'>
       <h2 className="z-10 text-center md:text-left text-4xl md:text-5xl font-medium tracking-tighter text-black dark:text-white">
-        Creators of Your Next <span className='bg-gradient-to-b from-orange-700 to-slate-950 text-transparent bg-clip-text'>Obsession</span>
+        <span className='bg-gradient-to-b from-orange-700 to-slate-950 text-transparent bg-clip-text'>Questions?</span>
       </h2>
       <div className='relative flex flex-col md:flex-row w-full justify-center items-center gap-10'>
         {teamMembers.map((member, index) => (
