@@ -103,7 +103,7 @@ const SalesFunnel: React.FC = () => {
             Ready to convert? 
           </h2>
           <p className="text-gray-500 text-xl mb-8">
-            Revolutionize your outdoor advertising with our cutting-edge AI technology. Reach the right audience at the right time, maximizing your campaign's impact.
+            {"Revolutionize your outdoor advertising with our cutting-edge AI technology. Reach the right audience at the right time, maximizing your campaign's impact."}
           </p>
           <button 
             className="bg-blue-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-700 transition-colors"

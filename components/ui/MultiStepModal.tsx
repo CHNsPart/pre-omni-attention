@@ -226,7 +226,7 @@ export default function MultiStepModal({ isOpen, setIsOpen }: MultiStepModalProp
                 <Check className="w-12 h-12 text-blue-600" />
               </motion.div>
               <p className="text-xl font-semibold mb-4">Thank you for your submission!</p>
-              <p className="text-gray-600 mb-6">We'll get back to you shortly.</p>
+              <p className="text-gray-600 mb-6">{"We'll get back to you shortly."}</p>
               <Button onClick={resetForm} className="bg-blue-600 hover:bg-blue-700">Close</Button>
             </div>
           )}
