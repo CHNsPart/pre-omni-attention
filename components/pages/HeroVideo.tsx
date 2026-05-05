@@ -72,7 +72,7 @@ export default function HeroSection() {
             variants={videoVariant}
           >
             <video 
-              src="https://tylersteeves.netfirms.com/oa_hero.mp4" 
+              src="/oa_hero.mp4" 
               autoPlay 
               loop 
               muted 

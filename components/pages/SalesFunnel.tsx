@@ -5,7 +5,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, useTexture, Svg } from '@react-three/drei';
 import * as THREE from 'three';
 import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader';
-import MultiStepModal from '../ui/MultiStepModal';
+import MultiStepModal, { ModalTrigger } from '../ui/MultiStepModal';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -130,33 +130,29 @@ const SalesFunnel: React.FC = () => {
     },
   };
 
-  const buttonVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
-    hover: { scale: 1.05, transition: { duration: 0.2 } },
-  };
+  const images = [
+    "/oa_og.png",
+    "/oa_og.png",
+    "/oa_og.png",
+    "/oa_og.png",
+    "/oa_og.png",
+  ];
 
   return (
-    <section className="container relative w-full h-screen bg-gradient-to-br from-white-50 via-blue-50 to-purple-50 flex items-center justify-between px-8 overflow-hidden">
+    <section className="relative w-full min-h-screen bg-gradient-to-br from-white-50 via-blue-50 to-purple-50 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-12 md:py-0 overflow-hidden">
       <motion.div
         ref={ref}
         initial="hidden"
         animate={controls}
         variants={containerVariants}
-        className="w-1/2 z-10 absolute bottom-10 mx-auto"
+        className="w-full md:w-1/2 z-10 mb-8 md:mb-0 md:absolute md:bottom-10 mx-auto"
       >
-        <div className="backdrop-filter backdrop-blur-lg bg-black/5 bg-opacity-10 p-8 rounded-xl">
+        <div className="backdrop-filter backdrop-blur-lg bg-black/5 bg-opacity-10 p-6 md:p-8 rounded-xl">
           <motion.h2 
             variants={itemVariants} 
-            className="text-black text-5xl font-bold mb-6 leading-tight"
+            className="text-blue-600 text-3xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight"
           >
-            <motion.span
-              variants={itemVariants}
-              className='bg-gradient-to-b from-blue-700 to-slate-950 text-transparent bg-clip-text'
-            >
-              Ready
-            </motion.span>
-            {' '}to{' '}
+            Ready to{' '}
             <motion.span
               variants={itemVariants}
               className='bg-gradient-to-b from-orange-700 to-slate-950 text-transparent bg-clip-text'
@@ -166,28 +162,23 @@ const SalesFunnel: React.FC = () => {
           </motion.h2>
           <motion.p 
             variants={itemVariants}
-            className="text-gray-500 text-xl mb-8"
+            className="text-gray-500 text-lg md:text-xl mb-6 md:mb-8"
           >
             Revolutionize your outdoor advertising with our cutting-edge AI technology. Reach the right audience at the right time, maximizing your campaign&apos;s impact.
           </motion.p>
-          <motion.button 
-            variants={buttonVariants}
-            whileHover="hover"
-            className="bg-blue-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-700 transition-colors"
-            onClick={() => setIsModalOpen(true)}
-          >
-            Book a free 10 min demo
-          </motion.button>
+          <motion.div variants={itemVariants}>
+            <ModalTrigger onClick={() => setIsModalOpen(true)} />
+          </motion.div>
         </div>
       </motion.div>
-      <div className="w-full h-full">
+      <div className="w-full h-screen mt-8 md:mt-0">
         <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
           <Suspense fallback={null}>
             <Scene />
           </Suspense>
         </Canvas>
       </div>
-      <MultiStepModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+      <MultiStepModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} images={images} />
     </section>
   );
 };

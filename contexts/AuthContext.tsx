@@ -15,6 +15,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<string | null>(null);
 
   useEffect(() => {
+    // Check localStorage for existing user on initial load
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(storedUser);
@@ -22,8 +23,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const login = (username: string, password: string) => {
-    // For simplicity, we're using a hardcoded username and password
-    console.log(username, "----" ,password)
     if (username === "omni" && password === "omni") {
       setUser(username);
       localStorage.setItem('user', username);

@@ -66,13 +66,13 @@ export function Navbar({ className }: { className?: string }) {
             <BlogItem
               title="Create DOOH Campaigns with Omni Attention"
               href="#"
-              src="https://tylersteeves.netfirms.com/b1.png"
+              src="/b1.png"
               description="Omni Attention dashboard is high-end."
             />
             <BlogItem
               title="Why Do I Need DOOH Marketing?"
               href="#"
-              src="https://tylersteeves.netfirms.com/b1.png"
+              src="/b1.png"
               description="Digital out of Home marketing hot right now."
             />
           </div>
