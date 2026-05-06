@@ -6,7 +6,6 @@ import "./globals.css";
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster";
 import Script from 'next/script';
-import { AuthProvider } from '../contexts/AuthContext';
 
 
 
@@ -86,9 +85,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        {children}
         <Toaster />
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.14/lottie.min.js"

@@ -527,7 +527,7 @@ export default function MultiStepModal({ isOpen, setIsOpen, images = [] }: Multi
                       <Check className="w-12 h-12 text-blue-600" />
                     </motion.div>
                     <p className="text-xl font-semibold mb-4">Thank you for your submission!</p>
-                    <p className="text-gray-600 mb-6">We'll get back to you shortly.</p>
+                    <p className="text-gray-600 mb-6">We&apos;ll get back to you shortly.</p>
                     <div className="flex flex-col space-y-4">
                       <Button onClick={() => setIsOpen(false)} className="bg-blue-600 hover:bg-blue-700 w-full">
                         Close
